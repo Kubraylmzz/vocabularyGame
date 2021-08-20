@@ -1,0 +1,14 @@
+com/vocabularygame/BuildConfig.java
+ com.vocabularygame.BuildConfig
+com/vocabularygame/ReactNativeFlipper.java
+ com.vocabularygame.ReactNativeFlipper
+ com.vocabularygame.ReactNativeFlipper$1
+ com.vocabularygame.ReactNativeFlipper$2
+ com.vocabularygame.ReactNativeFlipper$2$1
+com/vocabularygame/MainApplication.java
+ com.vocabularygame.MainApplication
+ com.vocabularygame.MainApplication$1
+com/vocabularygame/MainActivity.java
+ com.vocabularygame.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
