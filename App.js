@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text,StyleSheet, Button,Image, FlatList} from 'react-native';
+import { View, Text, StyleSheet, Button, Image} from 'react-native';
 import data from './data';
 
-export default class App extends Component {
+function random_item(items){
+  
+return items[Math.floor(Math.random()*items.length)];
+     
+}
 
+console.log(random_item(data));
+
+export default class App extends Component {
 
   render() {
     return (
@@ -15,19 +22,19 @@ export default class App extends Component {
         style={{width:60,height:60,left:130 ,resizeMode:'contain'}}></Image>
         </View>
          <View style={styles.alan}>
-           <Text>{data[0].tr}</Text>
+           <Text>{random_item(data).en}</Text>
          </View>
          <View style={styles.buttons}>
         <Button 
-        title= {data[2].en} 
+        title= {random_item(data).tr} 
         color='#D9728C'
         onPress={this.onPressDecrease}/>
         <Button 
-        title= {data[1].en}
+        title= {random_item(data).tr}
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
         <Button 
-        title= {data[0].en} 
+        title= {random_item(data).tr} 
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
         </View> 
