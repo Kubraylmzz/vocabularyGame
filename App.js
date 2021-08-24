@@ -3,17 +3,28 @@ import { View, Text, StyleSheet, Button, Image} from 'react-native';
 import data from './data';
 
 function random_item(items){
-  
-return items[Math.floor(Math.random()*items.length)];
-     
+return items[Math.floor(Math.random()*items.length)];    
 }
-
 console.log(random_item(data));
 
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    default: null,
+    _id : () => getRandomid(0,2)
+   
+  };
+  }
+
+componentDidMount(){
+  const randomData = random_item(data)
+
+  this.setState({default: randomData})
+}
 
   render() {
-    return (
+    return !this.state.default ? <Text>Loading</Text>: (
       <View style={styles.container}>
         <View style={styles.images}>
         <Image source={require('./src/assets/false.jpg')} 
@@ -22,19 +33,22 @@ export default class App extends Component {
         style={{width:60,height:60,left:130 ,resizeMode:'contain'}}></Image>
         </View>
          <View style={styles.alan}>
-           <Text>{random_item(data).en}</Text>
+           <Text>{this.state.default.en}</Text>
          </View>
          <View style={styles.buttons}>
         <Button 
-        title= {random_item(data).tr} 
+        _id='default2'
+        title= {this.state.default.tr} 
         color='#D9728C'
         onPress={this.onPressDecrease}/>
-        <Button 
-        title= {random_item(data).tr}
+        <Button
+        _id='default2' 
+        title= {this.state.default.tr}
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
         <Button 
-        title= {random_item(data).tr} 
+        _id='default2'
+        title= {this.state.default.tr} 
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
         </View> 
