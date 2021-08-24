@@ -12,7 +12,7 @@ export default class App extends Component {
     super(props);
     this.state = {
     default: null,
-    _id : () => getRandomid(0,2)
+    // _id : () => getRandomid(0,2)
    
   };
   }
@@ -37,17 +37,14 @@ componentDidMount(){
          </View>
          <View style={styles.buttons}>
         <Button 
-        _id='default2'
         title= {this.state.default.tr} 
         color='#D9728C'
         onPress={this.onPressDecrease}/>
         <Button
-        _id='default2' 
         title= {this.state.default.tr}
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
         <Button 
-        _id='default2'
         title= {this.state.default.tr} 
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
