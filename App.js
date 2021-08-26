@@ -11,20 +11,46 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-    default: null,
+    mainQuestion: null,
+    wrong: null,
+    wrongTwo: null,
+    loading :true
+
     // _id : () => getRandomid(0,2)
    
   };
   }
 
 componentDidMount(){
-  const randomData = random_item(data)
+  let newData = data
+  console.log(newData,"1. new data");
+  const randomMainQuestion = random_item(newData)
 
-  this.setState({default: randomData})
+  console.log(randomMainQuestion,"RANDOM");
+  newData=newData.filter(x => x._id !==randomMainQuestion._id )
+
+  console.log(newData,"2 new data");
+
+  
+  const wrong = random_item(newData)
+  const filteredData=newData.filter(item => item._id !==wrong._id )
+
+  console.log(filteredData,"FFFFFF");
+
+
+  const wrongTwo = random_item(filteredData)
+
+  
+
+  
+
+
+  this.setState({mainQuestion:randomMainQuestion, wrong,wrongTwo, loading:false})
+
 }
 
   render() {
-    return !this.state.default ? <Text>Loading</Text>: (
+    return this.state.loading ? <Text>Loading</Text>: (
       <View style={styles.container}>
         <View style={styles.images}>
         <Image source={require('./src/assets/false.jpg')} 
@@ -33,19 +59,19 @@ componentDidMount(){
         style={{width:60,height:60,left:130 ,resizeMode:'contain'}}></Image>
         </View>
          <View style={styles.alan}>
-           <Text>{this.state.default.en}</Text>
+           <Text>{this.state.mainQuestion.en}</Text>
          </View>
          <View style={styles.buttons}>
         <Button 
-        title= {this.state.default.tr} 
+        title= {this.state.mainQuestion.tr} 
         color='#D9728C'
         onPress={this.onPressDecrease}/>
         <Button
-        title= {this.state.default.tr}
+        title= {this.state.wrong.tr}
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
         <Button 
-        title= {this.state.default.tr} 
+        title= {this.state.wrongTwo.tr} 
         color='#D9728C' 
         onPress={this.onPressDecrease}/>
         </View> 
